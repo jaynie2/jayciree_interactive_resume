@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Puzzle - Select Level</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="images/background-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+<!-- Modal 1 -->
+<div id="modal_1" class="modal show">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>Congratulations on Completing Level 1! You've taken the first step </span>
+                <span>in getting to know me! But there's more to discover.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(2)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal_2" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>As you saw in the last level, I have both technical and soft skills.</span>
+                <span>Let’s recap!</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(3)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3 -->
+<div id="modal_3" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>I have knowledge of CPU, GPU, and other hardware components.</span>
+                <span>I understand how these parts work together to power devices.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(4)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 4 -->
+<div id="modal_4" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>I understand operating system concepts like memory management </span>
+                <span>and process scheduling, helping me optimize system performance.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(5)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 5 -->
+<div id="modal_5" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>I have experience with HTML, CSS, and JavaScript, allowing me to</span>
+                <span>build and style websites</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(6)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6 -->
+<div id="modal_6" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>While in Soft skills, I have leadership skills, which help me </span>
+                <span>guide teams and take initiative in projects.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(7)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 7 -->
+<div id="modal_7" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>Time management is one of my strengths. I prioritize tasks efficiently </span>
+                <span>to meet deadlines.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(8)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 8 -->
+<div id="modal_8" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>I excel at teamwork and collaboration, ensuring smooth communication </span>
+                <span>and productive teamwork.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(9)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 9 -->
+<div id="modal_9" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>Are you ready for the next challenge? Let's Go!</span>
+            </p>
+            <button class="menu_button" onclick="startGame()">Start Game</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Home Icon and Main Menu -->
+    <div id="home_menu">
+        <a href="#" class="home_icon" onclick="toggleModal()">
+            <i class="fas fa-home"></i>
+            <span>Main Menu</span>
+        </a>
+    </div>
+
+    <!-- Modal for Home Menu -->
+    <div id="home_modal" class="modal">
+        <div class="modal_content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2>Main Menu</h2>
+            <a href="start.html" class="menu_button">Home</a>
+        </div>
+    </div>
+
+    <script>
+        function showNextModal(modalNumber) {
+            // Hide all modals
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById('modal_' + i).classList.remove('show');
+            }
+            // Show the specified modal
+            document.getElementById('modal_' + modalNumber).classList.add('show');
+        }
+
+        function startGame() {
+            // Redirect to the game HTML file
+            window.location.href = "medium.html"; // Replace with your actual game file name
+        }
+
+        function toggleModal() {
+            const modal = document.getElementById('home_modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

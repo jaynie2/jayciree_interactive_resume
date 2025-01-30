@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Puzzle - Select Level</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="images/background-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+<!-- Modal 1 -->
+<div id="modal_1" class="modal show">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>Congratulations on Completing Final Level!</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(2)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal_2" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>By the time you finish solving, you seen my contact information</span>
+                <span>My Facebook, email, and contact number are there. if you ever  </span>
+                <span>need to reach me.</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(3)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3 -->
+<div id="modal_3" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span> And also I'm a Computer Engineering student, and in my free time, </span>
+                <span>I enjoy dancing, singing, and drawing. These are just a</span>
+                <span> few of the things I love to do when I have free time. </span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(4)">Next</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal 4 -->
+<div id="modal_4" class="modal">
+    <div class="character_image">
+        <img src="images/cartoon.gif" alt="Character Image">
+    </div>
+    <div class="Character_modal_content">
+        <div class="speech_bubble">
+            <p class="typewriter-text">
+                <span>Thank you for playing this game! I hope you enjoyed it. See you around!</span>
+            </p>
+            <button class="menu_button" onclick="showNextModal(10)">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Final Congratulations Modal -->
+<div id="modal_congrats" class="modal">
+    <div class="congrats_container">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <p>You have successfully completed the game!</p>
+        <p>Here’s your certificate of achievement!</p>
+        
+        <!-- Certificate Image (Zoom-in Effect) -->
+        <div class="certificate_container">
+            <img src="images/Certificate.png" alt="Completion Certificate" class="certificate">
+        </div>
+
+        <button class="menu_button" onclick="redirectToHome()">Go to Home</button>
+    </div>
+</div>
+
+    <!-- Home Icon and Main Menu -->
+    <div id="home_menu">
+        <a href="#" class="home_icon" onclick="toggleModal()">
+            <i class="fas fa-home"></i>
+            <span>Main Menu</span>
+        </a>
+    </div>
+
+    <!-- Modal for Home Menu -->
+    <div id="home_modal" class="modal">
+        <div class="modal_content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h2>Main Menu</h2>
+            <a href="start.html" class="menu_button">Home</a>
+        </div>
+    </div>
+
+    <script>
+        function showNextModal(modalNumber) {
+    // Hide all previous modals
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById('modal_' + i).classList.remove('show');
+    }
+
+    // If it's the final modal, show the Congrats modal
+    if (modalNumber === 10) {
+        document.getElementById('modal_congrats').classList.add('show');
+    } else {
+        document.getElementById('modal_' + modalNumber).classList.add('show');
+    }
+}
+
+function redirectToHome() {
+    window.location.href = "start.html"; // Redirect to home screen
+}
+
+    </script>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('Game');
+            audio.play();
+        };
+    </script>
+</body>
+</html>
